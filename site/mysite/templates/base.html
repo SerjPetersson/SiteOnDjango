@@ -1,0 +1,94 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="https://kit.fontawesome.com/097b64ae7d.js" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"><link rel="stylesheet" href="{% static 'css/style.css' %}"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+    <link rel="stylesheet" href="//code.jquery.com/jquery-1.11.1.min.js">
+
+    <title>{% block title %}Новости со всего мира{% endblock %}</title>
+  </head>
+  <body>
+
+
+
+  {% include 'inc/nav.html' %}
+
+
+
+
+
+
+<div class="container mt-3">
+
+  <div class="row">
+    <div class="col-md-2">
+      {% block sidebar %}{% endblock %}
+    </div>
+    <div class="col-md-10">
+
+      {% if messages %}
+
+      {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+
+            </div>
+        {% else %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+              {{ message }}
+
+            </div>
+        {% endif%}
+
+      {% endfor %}
+
+      {% endif %}
+
+      {% block content %}{% endblock %}
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+  </div>
+
+
+
+
+
+
+
+
+</div>
+  <div class="text-center p-1" style="background-color:rgb(222, 238, 221)">
+    © 2021 Python, Django, Bootstrap, Font Awesome
+  </div>
+  <div class="card-footer bg-white">
+         <h5>Социальные сети</h5>
+
+            <div class="col-md-6">
+        <div class="row row-tile no-gutters">
+            <div class="col-6"> <button type="button" class="btn btn-light btn-block btn-float m-0"> <a href="https://www.instagram.com/serjpeterson/"><i class="fab fa-instagram-square"></i></i> <span>Instagram</span> </a></button> <button type="button" class="btn btn-light btn-block btn-float m-0"> <a href="https://www.facebook.com/serj.petersson"><i class="fab fa-facebook-square"></i><span>Facebook</span> </button> </a><button type="button" class="btn btn-light btn-block btn-float m-0"> <a href="https://github.com/SerjPetersson/SerjPetersson"><i class="fab fa-github"></i></i> <span>GitHub</span> </a></button>
+            </div>
+     </div>
+            </div>
+  </div>
+  </body>
+
+</html>
